@@ -38,7 +38,11 @@ const movePiece = () => {
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
 const isLegal = () => {
   // Your code here
-
+  if (newArr.startStact[newArr.startStack.length - 1] > newArr.endStack[newArr.endStack.length - 1]) {
+    return false
+  } else {
+    return true
+  }
 }
 
 // What is a win in Towers of Hanoi? When should this function run?
