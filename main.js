@@ -15,6 +15,11 @@ const rl = readline.createInterface({
       // * Each number represents the largest to smallest tokens: 
         // * 4 is the largest, 
         // * 1 is the smallest
+let startMove;
+let endMove;
+let numberOfMoves = 0;
+let win = false;
+
 
 let stacks = {
   a: [4, 3, 2, 1],
@@ -22,6 +27,7 @@ let stacks = {
   c: []
 };
 
+let startingSize = stacks.a.length
 // Start here. What is this function doing?
 const printStacks = () => {
   console.log("a: " + stacks.a);
@@ -30,17 +36,32 @@ const printStacks = () => {
 }
 
 // Next, what do you think this function should do?
-const movePiece = () => {
+const movePiece = (startStack, endStack) => {
   // Your code here
+  // console.log(startMove)
+  // console.log(endMove)
+    let playerMove = startMove.pop();
+    endMove.push(playerMove)
+    numberOfMoves++;
+    if (checkForWin()) {
+      console.log(`You won in ${numberOfMoves} moves!`)
+    };
+
 
 }
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
-const isLegal = () => {
+const isLegal = (x, y) => {
+  // console.log(startMove)
+  startMove = stacks[x]
+  endMove = stacks[y]
+  // console.log(startMove)
   // Your code here
-  if (newArr.startStact[newArr.startStack.length - 1] > newArr.endStack[newArr.endStack.length - 1]) {
+  if (startMove[startMove.length - 1] > endMove[endMove.length - 1]) {
+    console.log("false")
     return false
   } else {
+    console.log("true")
     return true
   }
 }
@@ -48,23 +69,36 @@ const isLegal = () => {
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
   // Your code here
-
+  if (stacks.b.length === startingSize || stacks.c.length === startingSize) {
+    win = true
+    return true
+  } else {
+    return false
+  }
 }
 
 // When is this function called? What should it do with its argument?
 const towersOfHanoi = (startStack, endStack) => {
   // Your code here
-
+  // console.log("startStack: " + startStack)
+  // console.log("endStack: " + endStack)
+  startMove = stacks[startStack]
+  endMove = stacks[endStack]
+  if (isLegal(startStack, endStack)) {
+    movePiece();
+  }
 }
 
 const getPrompt = () => {
   printStacks();
+  if (win === false) {
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
       towersOfHanoi(startStack, endStack);
       getPrompt();
     });
   });
+}
 }
 
 // Tests
@@ -85,6 +119,7 @@ if (typeof describe === 'function') {
         b: [1],
         c: []
       };
+      // console.log(isLegal('a', 'b'))
       assert.equal(isLegal('a', 'b'), false);
     });
     it('should allow a legal move', () => {
@@ -93,6 +128,7 @@ if (typeof describe === 'function') {
         b: [],
         c: []
       };
+      // console.log(isLegal('a', 'c'))
       assert.equal(isLegal('a', 'c'), true);
     });
   });
