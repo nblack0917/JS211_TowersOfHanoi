@@ -1,9 +1,20 @@
+* {
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1 {
+  background: rgb(245, 245, 199);
+}
+
 .gameContainer {
   display: flex;
   flex-flow: row;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: space-between;
   justify-content: center;
   /* z-index: -2000; */
+  /* background: darkcyan; */
 }
 
 .game-column {
@@ -15,10 +26,13 @@
   /* z-index: -15; */
 }
 
-.selection-box {
-  width: 150px;
-  height: 40px;
-  background: cornflowerblue;
+#selection-box {
+  width: 100%;
+  height: 50px;
+  /* background: cornflowerblue; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 [data-row] {
@@ -41,20 +55,26 @@
 }
 
 [data-row].yellow {
-  background-color: #ffffa9;
+  /* background-color: #ffffa9; */
+  background-color: #baf6ba;
 }
 
 [data-row].green {
   background-color: #baf6ba;
 }
 
-[data-row].blue {
+/* [data-row].blue {
   background-color: aliceblue;
-}
+} */
 
 .stone {
-  z-index: 10;
+  /* z-index: 10; */
   border-radius: 5px;
+  border-bottom: 1px solid dimgray;
+  border-right: 1px solid darkgray;
+  border-top: 1px solid silver;
+  border-left: 1px solid white;
+  box-shadow: 4px 3px 4px dimgray;
 }
 
 .selectedStone {
@@ -68,29 +88,48 @@
 
 [data-color="blue"] {
   height: 25px;
-  width: 30%;
+  width: 50px;
   background-color: blue;
+  z-index: 7;
 }
 
 [data-color="green"] {
   height: 30px;
-  width: 55%;
+  width: 75px;
   background-color: green;
+  z-index: 8;
 }
 
 [data-color="red"] {
   height: 35px;
-  width: 70%;
+  width: 100px;
   background-color: red;
+  z-index: 9;
 }
 
 [data-color="yellow"] {
   height: 40px;
-  width: 85%;
+  width: 125px;
   background-color: yellow;
+  z-index: 10;
 }
 
 #announce-game-won {
   font-size: 50px;
   text-align: center;
+}
+
+#numOfMoves {
+  width: 100%;
+  height: 40px;
+  background: rgb(245, 245, 199);
+  margin-bottom: 15px;
+  font-size: 2em;
+}
+
+#resetButton {
+  visibility: hidden;
+}
+#resetButton:hover {
+  cursor: pointer;
 }
