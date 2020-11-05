@@ -1,15 +1,40 @@
+.gameContainer {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  /* z-index: -2000; */
+}
+
+.game-column {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  /* z-index: -15; */
+}
+
+.selection-box {
+  width: 150px;
+  height: 40px;
+  background: cornflowerblue;
+}
+
 [data-row] {
   display: flex;
+  flex-flow: column-reverse;
   justify-content: flex-start;
   align-items: center;
-  height: 34px;
-  margin: 25px;
+  width: 150px;
+  height: 200px;
+  margin:  0 25px;
   border: 1px solid lightgray;
 }
 
-.row {
-  z-index: -10;
-}
+/* .row {
+  z-index: 10;
+} */
 
 [data-row].red {
   background-color: #f6c5c5;
@@ -29,6 +54,11 @@
 
 .stone {
   z-index: 10;
+  border-radius: 5px;
+}
+
+.selectedStone {
+  margin-bottom: 50px;
 }
 
 [data-color] {
@@ -37,22 +67,26 @@
 }
 
 [data-color="blue"] {
-  height: 33px;
+  height: 25px;
+  width: 30%;
   background-color: blue;
 }
 
 [data-color="green"] {
-  height: 33px;
+  height: 30px;
+  width: 55%;
   background-color: green;
 }
 
 [data-color="red"] {
-  height: 33px;
+  height: 35px;
+  width: 70%;
   background-color: red;
 }
 
 [data-color="yellow"] {
-  height: 33px;
+  height: 40px;
+  width: 85%;
   background-color: yellow;
 }
 
