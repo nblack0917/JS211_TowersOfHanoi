@@ -127,9 +127,7 @@ h1 {
   font-size: 2em;
 }
 
-#resetButton {
-  visibility: hidden;
-}
+
 #resetButton:hover {
   cursor: pointer;
 }

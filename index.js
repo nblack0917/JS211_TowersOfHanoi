@@ -23,7 +23,6 @@ const checkForWin = () => {
         document.getElementById("resetButton").style.visibility = "visible";
       } else {
         alert("You Win! But it can be done with less moves. See if you can do beter.")
-        document.getElementById("resetButton").style.visibility = "visible";
       }
     }, 500)
     win = true;
@@ -103,6 +102,5 @@ const resetBoard = () => {
   c.appendChild(stoneThree)
   c.appendChild(stoneTwo)
   c.appendChild(stoneOne)
-  document.getElementById("resetButton").style.visibility = "hidden";
 }
 
