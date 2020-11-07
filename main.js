@@ -43,6 +43,7 @@ const movePiece = (startStack, endStack) => {
     let playerMove = startMove.pop();
     endMove.push(playerMove)
     numberOfMoves++;
+    console.log(`${numberOfMoves} moves`)
     if (checkForWin()) {
       console.log(`You won in ${numberOfMoves} moves!`)
     };
@@ -58,10 +59,10 @@ const isLegal = (x, y) => {
   // console.log(startMove)
   // Your code here
   if (startMove[startMove.length - 1] > endMove[endMove.length - 1]) {
-    console.log("false")
+    console.log("Illegal move. Please choose another.")
     return false
   } else {
-    console.log("true")
+    // console.log("true")
     return true
   }
 }
